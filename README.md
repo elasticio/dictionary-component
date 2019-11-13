@@ -86,6 +86,14 @@ The lookup from dictionary action takes a dictionary to lookup from, a dictionar
 - if lookup is unsuccessful and not emitting an empty object, and error will be emitted
 
 ## Additional Info
+Any elements of the CSV that contain the delimiter in them should be wrapped in `"double quotes"`. Any elements of the CSV that contain the delimiter and also quotations should have the quotes backspaced.
+
+e.g.
+```
+Full Name,First,Last
+"Bond,James",James,Bond
+"Johnson, Dwayne \"The Rock\"",Dwayne,Johnson
+```
 
 ## Known Limitations
 - the CSV has a max size of 5kB

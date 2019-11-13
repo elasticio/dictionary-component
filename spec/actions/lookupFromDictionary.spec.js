@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const action = require('../../lib/actions/lookupFromDictionary');
-const { table } = require('../testData');
+const { table, tableWithWeirdValues } = require('../testData');
 
 const self = {
   emit: sinon.spy(),
@@ -71,5 +71,11 @@ describe('Tests for lookup from dictionary', () => {
     msg.body.input = 'male';
     await action.process.call(self, msg, { table, from: 'English', to: 'German' });
     expect(self.emit.getCall(0).args[1].body).to.be.deep.equal({ result: 'männlich' });
+  });
+
+  it('Successfully does lookups with things with extra commas and quotations', async () => {
+    msg.body.input = 'm,a,l,e';
+    await action.process.call(self, msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
+    expect(self.emit.getCall(0).args[1].body).to.be.deep.equal({ result: 'mä,nn"lich' });
   });
 });

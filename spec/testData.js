@@ -1,5 +1,12 @@
+/* eslint-disable no-useless-escape */
 const table = `English,Abbreviated,German
 male,M,männlich
+female,F,weiblich
+other,O,divers
+unknown,U,unbekannt`;
+
+const tableWithWeirdValues = `English,Abbreviated,German
+"m,a,l,e",M,"mä,nn\"lich"
 female,F,weiblich
 other,O,divers
 unknown,U,unbekannt`;
@@ -26,6 +33,7 @@ unknown,U,unbekannt`;
 
 module.exports = {
   table,
+  tableWithWeirdValues,
   unevenTable,
   unevenTable2,
   largeTable,
