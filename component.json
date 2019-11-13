@@ -1,0 +1,40 @@
+{
+  "title": "Dictionary Component",
+  "description": "Dictionary Component for CSV lookups",
+  "credentials": {
+    "table": {
+      "viewClass": "TextAreaView",
+      "label": "CSV Table",
+      "required": true,
+      "placeholder": "apples,bananas,oranges"
+    }
+  },
+  "actions": {
+    "lookupFromDictionary": {
+      "main": "./lib/actions/lookupFromDictionary.js",
+      "title": "Lookup From Dictionary",
+      "description": "Lookup from one column in dictionary to another",
+      "fields": {
+        "emitEmptyObject": {
+          "label": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behaviour in this case is to throw an error",
+          "viewClass": "CheckBoxView"
+        },
+        "from": {
+          "label": "From this dictionary",
+          "required": true,
+          "viewClass": "SelectView",
+          "model": "dictionaryColumns",
+          "prompt": "Select dictionary"
+        },
+        "to": {
+          "label": "To this dictionary",
+          "required": true,
+          "viewClass": "SelectView",
+          "model": "dictionaryColumns",
+          "prompt": "Select dictionary"
+        }
+      },
+      "dynamicMetadata": true
+    }
+  }
+}
