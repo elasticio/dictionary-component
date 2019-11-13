@@ -4,11 +4,17 @@
   "description": "Dictionary Component for CSV lookups on the eio platform",
   "author": "elastic.io GmbH",
   "scripts": {
+    "pretest": "eslint . --fix",
     "test": "mocha spec --recursive"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elasticio/dictionary-component.git"
+  },
+  "dependencies": {
+    "elasticio-node": "0.0.9",
+    "elasticio-sailor-nodejs": "2.5.1",
+    "papaparse": "5.1.0"
   },
   "devDependencies": {
     "chai": "4.2.0",
@@ -17,10 +23,5 @@
     "eslint-plugin-import": "2.18.2",
     "mocha": "6.2.2",
     "sinon": "7.5.0"
-  },
-  "dependencies": {
-    "elasticio-node": "0.0.9",
-    "elasticio-sailor-nodejs": "2.5.1",
-    "papaparse": "5.1.0"
   }
 }

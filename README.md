@@ -68,6 +68,7 @@ will provide a failed result.
 The CSV can only be a maximum of 5kB, and if it contains any duplicate values in a given column, it will fail validation.
 
 ## Triggers
+None yet.
 
 ## Actions
 ### Lookup From Dictionary
