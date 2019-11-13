@@ -36,7 +36,7 @@ describe('Tests for lookup from dictionary', () => {
           },
         },
       },
-      out: { type: 'object', properties: { German: { type: 'string' } } },
+      out: { type: 'object', properties: { result: { type: 'string' } } },
     });
   });
 

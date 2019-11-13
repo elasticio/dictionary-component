@@ -74,10 +74,10 @@ None yet.
 ### Lookup From Dictionary
 The lookup from dictionary action takes a dictionary to lookup from, a dictionary to translate to, and an input value to translate. It returns an object in the form `{result: value}` where the value is the result of the table lookup, if it exists:
 
-**Input Metadata**
+**Input Configuration**
 - Emit empty object on unsuccessful lookup: if selected, an empty object `{}` will be emitted given an unsuccessful lookup where nothing is found. If *not* selected, an error will be thrown on unsuccessful lookup
-- From this dictionary: the dictionary to translate from
-- To this dictionary: the dictionary to translate to
+- From this dictionary: the column to translate from
+- To this dictionary: the column to translate to
 - Input: the value to translate. Should be selected from the list of available values under `Values`
 
 **Output Metadata**
