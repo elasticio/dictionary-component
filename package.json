@@ -11,16 +11,16 @@
     "url": "git+https://github.com/elasticio/dictionary-component.git"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "mocha": "^6.2.2",
-    "sinon": "^7.5.0"
+    "chai": "4.2.0",
+    "eslint": "6.6.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "mocha": "6.2.2",
+    "sinon": "7.5.0"
   },
   "dependencies": {
     "elasticio-node": "0.0.9",
-    "elasticio-sailor-nodejs": "^2.5.1",
-    "papaparse": "^5.1.0"
+    "elasticio-sailor-nodejs": "2.5.1",
+    "papaparse": "5.1.0"
   }
 }

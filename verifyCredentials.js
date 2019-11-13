@@ -1,4 +1,5 @@
 const parser = require('papaparse');
+const util = require('util');
 
 const MAX_SIZE = 5000;
 
@@ -7,7 +8,7 @@ function duplicatesExist(arr) {
 }
 
 module.exports = function verify(cfg) {
-  const size = (new TextEncoder().encode(cfg.table)).length;
+  const size = (new util.TextEncoder().encode(cfg.table)).length;
   if (size > MAX_SIZE) throw new Error('CSV is too large');
 
   const results = parser.parse(cfg.table, { header: true });
