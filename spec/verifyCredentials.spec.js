@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { verify } = require('../verifyCredentials');
+const verify = require('../verifyCredentials');
 const {
   table, unevenTable, unevenTable2, largeTable, duplicateTable,
 } = require('./testData');

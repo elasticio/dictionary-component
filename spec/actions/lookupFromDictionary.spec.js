@@ -18,15 +18,22 @@ describe('Tests for lookup from dictionary', () => {
 
   it('Returns the correct column titles from Select Views', () => {
     const result = action.dictionaryColumns({ table });
-    expect(result).to.deep.equal(['English', 'Abbreviated', 'German']);
+    expect(result).to.deep.equal({
+      English: 'English',
+      Abbreviated: 'Abbreviated',
+      German: 'German',
+    });
   });
 
   it('Returns the correct schema from getMetaModel', () => {
     const result = action.getMetaModel({ table, from: 'English', to: 'German' });
     expect(result).to.be.deep.equal({
       in: {
-        input: {
-          type: 'string', title: 'Input', required: true, enum: ['male', 'female', 'other', 'unknown'],
+        type: 'object',
+        properties: {
+          input: {
+            type: 'string', title: 'Input', required: true, enum: ['male', 'female', 'other', 'unknown'],
+          },
         },
       },
       out: { type: 'object', properties: { German: { type: 'string' } } },
@@ -48,7 +55,7 @@ describe('Tests for lookup from dictionary', () => {
       };
       await action.process(msg, cfg);
     } catch (e) {
-      expect(e.message).to.be.equal('Value does not exist in dictionary');
+      expect(e.message).to.be.equal('Value does not exist in dictionary selected');
     }
   });
 

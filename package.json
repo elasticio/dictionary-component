@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "elasticio-node": "0.0.9",
-    "elasticio-sailor-nodejs": "^2.6.0-dev.3",
+    "elasticio-sailor-nodejs": "^2.5.1",
     "papaparse": "^5.1.0"
   }
 }

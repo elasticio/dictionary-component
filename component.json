@@ -2,11 +2,13 @@
   "title": "Dictionary Component",
   "description": "Dictionary Component for CSV lookups",
   "credentials": {
-    "table": {
-      "viewClass": "TextAreaView",
-      "label": "CSV Table",
-      "required": true,
-      "placeholder": "apples,bananas,oranges"
+    "fields": {
+      "table": {
+        "viewClass": "TextAreaView",
+        "label": "CSV Table",
+        "required": true,
+        "placeholder": "apples,bananas,oranges"
+      }
     }
   },
   "actions": {
@@ -16,8 +18,9 @@
       "description": "Lookup from one column in dictionary to another",
       "fields": {
         "emitEmptyObject": {
-          "label": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behaviour in this case is to throw an error",
-          "viewClass": "CheckBoxView"
+          "label": "Emit empty object on unsuccessful lookup",
+          "viewClass": "CheckBoxView",
+          "note": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behaviour in this case is to throw an error"
         },
         "from": {
           "label": "From this dictionary",

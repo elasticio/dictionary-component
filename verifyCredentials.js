@@ -6,7 +6,7 @@ function duplicatesExist(arr) {
   return new Set(arr).size !== arr.length;
 }
 
-exports.verify = function verify(cfg) {
+module.exports = function verify(cfg) {
   const size = (new TextEncoder().encode(cfg.table)).length;
   if (size > MAX_SIZE) throw new Error('CSV is too large');
 
