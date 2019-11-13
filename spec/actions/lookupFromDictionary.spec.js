@@ -59,23 +59,23 @@ describe('Tests for lookup from dictionary', () => {
     }
   });
 
-  it('Emits an empty message if tryin to lookup an input value that does not exist', async () => {
+  it('Emits an empty message if tryin to lookup an input value that does not exist', () => {
     const cfg = {
       table, from: 'English', to: 'German', emitEmptyObject: true,
     };
-    await action.process.call(self, msg, cfg);
-    expect(self.emit.getCall(0).args[1].body).to.be.deep.equal({ });
+    const result = action.process(msg, cfg);
+    expect(result.body).to.be.deep.equal({ });
   });
 
-  it('Successfully looks up a value in the table and returns the correct value in response', async () => {
+  it('Successfully looks up a value in the table and returns the correct value in response', () => {
     msg.body.input = 'male';
-    await action.process.call(self, msg, { table, from: 'English', to: 'German' });
-    expect(self.emit.getCall(0).args[1].body).to.be.deep.equal({ result: 'männlich' });
+    const result = action.process(msg, { table, from: 'English', to: 'German' });
+    expect(result.body).to.be.deep.equal({ result: 'männlich' });
   });
 
   it('Successfully does lookups with things with extra commas and quotations', async () => {
     msg.body.input = 'm,a,l,e';
-    await action.process.call(self, msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
-    expect(self.emit.getCall(0).args[1].body).to.be.deep.equal({ result: 'mä,nn"lich' });
+    const result = action.process(msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
+    expect(result.body).to.be.deep.equal({ result: 'mä,nn"lich' });
   });
 });
