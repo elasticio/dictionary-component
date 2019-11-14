@@ -4,7 +4,7 @@
   "description": "Dictionary Component for CSV lookups on the eio platform",
   "author": "elastic.io GmbH",
   "scripts": {
-    "pretest": "eslint . --fix",
+    "pretest": "eslint lib/ spec verifyCredentials.js --fix",
     "test": "mocha spec --recursive"
   },
   "repository": {
