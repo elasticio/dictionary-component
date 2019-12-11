@@ -10,8 +10,6 @@
 * [Additional info](#additional-info)
 * [Known Limitations](#known-limitations)
 
-## General Information
-
 ## Description
 The Dictionary Component can be used to convert from different dictionaries that parsed as a CSV.
 
