@@ -13,8 +13,8 @@
     }
   },
   "actions": {
-    "lookupFromDictionary": {
-      "main": "./lib/actions/lookupFromDictionary.js",
+    "lookupFromTable": {
+      "main": "./lib/actions/lookupFromTable.js",
       "title": "Lookup From Table",
       "description": "Lookup from one column in the table to another",
       "fields": {

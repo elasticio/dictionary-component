@@ -1,17 +1,17 @@
-# Dictionary Component
+# Lookup From Table Component
 
 ## Table of Contents
 * [Description](#description)
 * [Credentials](#credentials)
 * [Triggers](#triggers)
 * [Actions](#actions)
-  * [Lookup From Dictionary](#lookup-from-dictionary)
+  * [Lookup From Table](#lookup-from-table)
     * [Configuration Fields](#configuration-fields)
 * [Additional info](#additional-info)
 * [Known Limitations](#known-limitations)
 
 ## Description
-The Dictionary Component can be used to convert from different dictionaries that parsed as a CSV.
+The Lookup From Table Component can be used to convert from different tables that parsed as a CSV.
 
 ## Credentials
 `CSV Table`: The CSV is entered on the Credentials page as a list of separated items. Any delimiter is supported. The CSV will be parsed using the first row as a header for each column below it. The CSV must be able to be interpreted as a rectangle, i.e. it cannot be missing values.
@@ -72,14 +72,14 @@ None yet.
 
 ## Actions
 
-### Lookup From Dictionary
-The lookup from dictionary action takes a dictionary to lookup from, a dictionary to translate to, and an input value to translate. It returns an object in the form `{result: value}` where the value is the result of the table lookup, if it exists:
+### Lookup From Table
+The lookup from table action takes a table to lookup from, a table to translate to, and an input value to translate. It returns an object in the form `{result: value}` where the value is the result of the table lookup, if it exists:
 
 #### Configuration Fields
 **Input Configuration**
 - `Emit empty object on unsuccessful lookup`: if selected, an empty object `{}` will be emitted given an unsuccessful lookup where nothing is found. If *not* selected, an error will be thrown on unsuccessful lookup
-- `From this dictionary`: the column to translate from
-- `To this dictionary`: the column to translate to
+- `From this table`: the column to translate from
+- `To this table`: the column to translate to
 
 #### Expected input metadata
 - `Input`: the value to translate. Should be selected from the list of available values under `Values`

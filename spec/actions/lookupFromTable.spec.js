@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
-const action = require('../../lib/actions/lookupFromDictionary');
+const action = require('../../lib/actions/lookupFromTable');
 const { table, tableWithWeirdValues } = require('../testData');
 
 const self = {
@@ -55,7 +55,7 @@ describe('Tests for lookup from dictionary', () => {
       };
       await action.process(msg, cfg);
     } catch (e) {
-      expect(e.message).to.be.equal('Value does not exist in dictionary selected');
+      expect(e.message).to.be.equal('Value does not exist in table selected');
     }
   });
 
