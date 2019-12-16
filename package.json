@@ -1,7 +1,7 @@
 {
-  "name": "dictionary-component",
-  "version": "1.0.0",
-  "description": "Dictionary Component for CSV lookups on the eio platform",
+  "name": "lookup-table-component",
+  "version": "1.1.0",
+  "description": "Lookup Table Component for CSV lookups on the eio platform",
   "author": "elastic.io GmbH",
   "scripts": {
     "pretest": "eslint lib/ spec verifyCredentials.js --fix",

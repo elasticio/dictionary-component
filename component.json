@@ -1,6 +1,6 @@
 {
-  "title": "Dictionary Component",
-  "description": "Dictionary Component for CSV lookups",
+  "title": "Lookup Table Component",
+  "description": "Lookup Table Component for CSV lookups",
   "buildType": "docker",
   "credentials": {
     "fields": {
@@ -13,10 +13,10 @@
     }
   },
   "actions": {
-    "lookupFromDictionary": {
-      "main": "./lib/actions/lookupFromDictionary.js",
-      "title": "Lookup From Dictionary",
-      "description": "Lookup from one column in dictionary to another",
+    "lookupFromTable": {
+      "main": "./lib/actions/lookupFromTable.js",
+      "title": "Lookup From Table",
+      "description": "Lookup from one column in the table to another",
       "fields": {
         "emitEmptyObject": {
           "label": "Emit empty object on unsuccessful lookup",
@@ -24,18 +24,18 @@
           "note": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behaviour in this case is to throw an error"
         },
         "from": {
-          "label": "From this dictionary",
+          "label": "From this table",
           "required": true,
           "viewClass": "SelectView",
           "model": "dictionaryColumns",
-          "prompt": "Select dictionary"
+          "prompt": "Select table"
         },
         "to": {
-          "label": "To this dictionary",
+          "label": "To this table",
           "required": true,
           "viewClass": "SelectView",
           "model": "dictionaryColumns",
-          "prompt": "Select dictionary"
+          "prompt": "Select table"
         }
       },
       "dynamicMetadata": true
