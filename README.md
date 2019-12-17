@@ -1,4 +1,4 @@
-# Lookup From Table Component
+# Lookup Table Component
 
 ## Table of Contents
 * [Description](#description)
