@@ -6,6 +6,9 @@
     "pretest": "eslint lib/ spec verifyCredentials.js --fix",
     "test": "mocha spec --recursive"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elasticio/dictionary-component.git"
