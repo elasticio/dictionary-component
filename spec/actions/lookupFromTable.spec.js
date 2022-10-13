@@ -1,7 +1,11 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const action = require('../../lib/actions/lookupFromTable');
-const { table, tableWithWeirdValues } = require('../testData');
+const {
+  table,
+  tableWithWeirdValues,
+  tableWithNumbers,
+} = require('../testData');
 
 const self = {
   emit: sinon.spy(),
@@ -77,5 +81,29 @@ describe('Tests for lookup from dictionary', () => {
     msg.body.input = 'm,a,l,e';
     const result = await action.process(msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
     expect(result.body).to.be.deep.equal({ result: 'mä,nn"lich' });
+  });
+
+  it('Successfully does lookups with numbers as values', async () => {
+    msg.body.input = 2;
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'German' });
+    expect(result.body).to.be.deep.equal({ result: 'Zwei' });
+  });
+
+  it('Successfully does another lookups with numbers as values', async () => {
+    msg.body.input = 2;
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: '6' });
+  });
+
+  it('Successfully does lookups with numbers as string', async () => {
+    msg.body.input = 4;
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'German' });
+    expect(result.body).to.be.deep.equal({ result: 'Vier' });
+  });
+
+  it('Successfully does another lookups with numbers as string', async () => {
+    msg.body.input = '4';
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: '8' });
   });
 });
