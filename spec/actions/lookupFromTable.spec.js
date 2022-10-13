@@ -95,10 +95,10 @@ describe('Tests for lookup from dictionary', () => {
     expect(result.body).to.be.deep.equal({ result: '6' });
   });
 
-  it('Successfully does lookups with numbers as string', async () => {
-    msg.body.input = 4;
-    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'German' });
-    expect(result.body).to.be.deep.equal({ result: 'Vier' });
+  it('Successfully does lookups with numbers as string with apostrophe', async () => {
+    msg.body.input = '5';
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: 'In his house at R\'lyeh, dead Cthulhu waits dreaming' });
   });
 
   it('Successfully does another lookups with numbers as string', async () => {
