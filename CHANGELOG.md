@@ -1,3 +1,9 @@
+## 1.1.7 (October 21, 2022)
+
+* Update Sailor version to 2.7.0
+* Add async to a process action
+* Input values are now stringified before being processing
+
 ## 1.1.6 (May 05, 2022)
 
 * Update Sailor version to 2.6.27

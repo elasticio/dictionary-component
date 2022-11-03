@@ -1,7 +1,11 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 const action = require('../../lib/actions/lookupFromTable');
-const { table, tableWithWeirdValues } = require('../testData');
+const {
+  table,
+  tableWithWeirdValues,
+  tableWithNumbers,
+} = require('../testData');
 
 const self = {
   emit: sinon.spy(),
@@ -59,23 +63,47 @@ describe('Tests for lookup from dictionary', () => {
     }
   });
 
-  it('Emits an empty message if tryin to lookup an input value that does not exist', () => {
+  it('Emits an empty message if trying to lookup an input value that does not exist', async () => {
     const cfg = {
       table, from: 'English', to: 'German', emitEmptyObject: true,
     };
-    const result = action.process(msg, cfg);
+    const result = await action.process(msg, cfg);
     expect(result.body).to.be.deep.equal({ });
   });
 
-  it('Successfully looks up a value in the table and returns the correct value in response', () => {
+  it('Successfully looks up a value in the table and returns the correct value in response', async () => {
     msg.body.input = 'male';
-    const result = action.process(msg, { table, from: 'English', to: 'German' });
+    const result = await action.process(msg, { table, from: 'English', to: 'German' });
     expect(result.body).to.be.deep.equal({ result: 'männlich' });
   });
 
   it('Successfully does lookups with things with extra commas and quotations', async () => {
     msg.body.input = 'm,a,l,e';
-    const result = action.process(msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
+    const result = await action.process(msg, { table: tableWithWeirdValues, from: 'English', to: 'German' });
     expect(result.body).to.be.deep.equal({ result: 'mä,nn"lich' });
+  });
+
+  it('Successfully does lookups with numbers as values', async () => {
+    msg.body.input = 2;
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'German' });
+    expect(result.body).to.be.deep.equal({ result: 'Zwei' });
+  });
+
+  it('Successfully does another lookups with numbers as values', async () => {
+    msg.body.input = 2;
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: '6' });
+  });
+
+  it('Successfully does lookups with numbers as string with apostrophe', async () => {
+    msg.body.input = '5';
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: 'In his house at R\'lyeh, dead Cthulhu waits dreaming' });
+  });
+
+  it('Successfully does another lookups with numbers as string', async () => {
+    msg.body.input = '4';
+    const result = await action.process(msg, { table: tableWithNumbers, from: 'Number', to: 'Another' });
+    expect(result.body).to.be.deep.equal({ result: '8' });
   });
 });

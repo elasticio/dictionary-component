@@ -5,6 +5,13 @@ female,F,weiblich
 other,O,divers
 unknown,U,unbekannt`;
 
+const tableWithNumbers = `Number,English,German,Another
+1,One,Eins,5
+2,Two,"Zwei",6
+3,Three,Drei,"7"
+"4",For,Vier,"8"
+5,For,Vier,"In his house at R'lyeh, dead Cthulhu waits dreaming"`;
+
 const tableWithWeirdValues = `English,Abbreviated,German
 "m,a,l,e",M,"mä,nn\"lich"
 female,F,weiblich
@@ -38,4 +45,5 @@ module.exports = {
   unevenTable2,
   largeTable,
   duplicateTable,
+  tableWithNumbers,
 };

@@ -90,7 +90,7 @@ The lookup from table action takes a table to lookup from, a table to translate 
 - if lookup is unsuccessful and not emitting an empty object, and error will be emitted
 
 ## Additional Info
-Any elements of the CSV that contain the delimiter in them should be wrapped in `"double quotes"`. Any elements of the CSV that contain the delimiter and also quotations should have the quotes backspaced.
+- Any elements of the CSV that contain the delimiter in them should be wrapped in `"double quotes"`. Any elements of the CSV that contain the delimiter and also quotations should have the quotes backspaced.
 
 e.g.
 ```
@@ -98,6 +98,11 @@ Full Name,First,Last
 "Bond,James",James,Bond
 "Johnson, Dwayne \"The Rock\"",Dwayne,Johnson
 ```
+
+- If you want to mark an element as a string (e.g. "5" or "Some text inside a single element"), you must use `"`, not `'`, because `'` is considered as an additional character. So in this case:
+2 is the same as "2", but '2' would be equal to "'2'".
+
+
 
 ## Known Limitations
 - the CSV has a max size of 5kB
