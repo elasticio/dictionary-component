@@ -1,6 +1,6 @@
 {
   "title": "Lookup Table Component",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "Lookup Table Component for CSV lookups",
   "credentials": {
     "fields": {
@@ -21,21 +21,36 @@
         "emitEmptyObject": {
           "label": "Emit empty object on unsuccessful lookup",
           "viewClass": "CheckBoxView",
-          "note": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behaviour in this case is to throw an error"
+          "note": "If selected and a lookup to your input is unsuccessful, an empty object {} will be emitted. The default behavior in this case is to throw an error"
         },
         "from": {
-          "label": "From this table",
+          "label": "From this column",
           "required": true,
           "viewClass": "SelectView",
           "model": "dictionaryColumns",
-          "prompt": "Select table"
+          "prompt": "Select column"
         },
         "to": {
-          "label": "To this table",
+          "label": "To this column",
           "required": true,
           "viewClass": "SelectView",
           "model": "dictionaryColumns",
-          "prompt": "Select table"
+          "prompt": "Select column"
+        },
+        "duplicates": {
+          "label": "Duplicates behavior",
+          "required": false,
+          "viewClass": "SelectView",
+          "model": {
+            "emitAllIndividually": "Emit all mach individually",
+            "emitAllArray": "Emit all mach as Array",
+            "emitFirst": "Emit first found",
+            "throwError": "Throw an error (Default)"
+          },
+          "placeholder": "Throw an error (Default)",
+          "help": {
+            "description": "How to handle cases when found several records in selected \"From this column\""
+          }
         }
       },
       "dynamicMetadata": true

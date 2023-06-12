@@ -1,3 +1,10 @@
+## 1.2.0 (June 12, 2023)
+* Added `Duplicates behavior` option
+* Fixed error on empty lines
+* Renamed configuration fields:
+  * `From this table` -> `From this column`
+  * `To this table` -> `To this column`
+
 ## 1.1.7 (October 21, 2022)
 
 * Update Sailor version to 2.7.1

@@ -65,7 +65,7 @@ unknown,U,unbekannt
 ```
 will provide a failed result.
 
-The CSV can only be a maximum of 5kB, and if it contains any duplicate values in a given column, it will fail validation.
+The CSV can only be a maximum of 5kB.
 
 ## Triggers
 None yet.
@@ -78,8 +78,13 @@ The lookup from table action takes a table to lookup from, a table to translate 
 #### Configuration Fields
 **Input Configuration**
 - `Emit empty object on unsuccessful lookup`: if selected, an empty object `{}` will be emitted given an unsuccessful lookup where nothing is found. If *not* selected, an error will be thrown on unsuccessful lookup
-- `From this table`: the column to translate from
-- `To this table`: the column to translate to
+- `From this column`: the column to translate from
+- `To this column`: the column to translate to
+- `Duplicates behavior`: How to handle cases when found several records in selected `From this column` in provided table, options:
+  * `Emit all mach individually` - Will emit each record as separate message
+  * `Emit all mach as Array` - Will emit all founded records as array of strings
+  * `Emit first found` - Will emit first founded record
+  * `Throw an error (Default)` - By default error will be thrown
 
 #### Expected input metadata
 - `Input`: the value to translate. Should be selected from the list of available values under `Values`
@@ -107,4 +112,3 @@ Full Name,First,Last
 ## Known Limitations
 - the CSV has a max size of 5kB
 - the CSV must be able to be parsed as a rectangle
-- the CSV must not contain any duplicates in column values
