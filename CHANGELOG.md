@@ -1,4 +1,4 @@
-## 1.2.0 (June 01, 2023)
+## 1.2.0 (June 12, 2023)
 * Added `Duplicates behavior` option
 * Fixed error on empty lines
 * Renamed configuration fields:
