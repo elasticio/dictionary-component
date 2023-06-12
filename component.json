@@ -1,6 +1,6 @@
 {
   "title": "Lookup Table Component",
-  "version": "1.2.0-dev.2",
+  "version": "1.2.0-dev.3",
   "description": "Lookup Table Component for CSV lookups",
   "credentials": {
     "fields": {

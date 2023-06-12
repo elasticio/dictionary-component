@@ -112,4 +112,3 @@ Full Name,First,Last
 ## Known Limitations
 - the CSV has a max size of 5kB
 - the CSV must be able to be parsed as a rectangle
-- the CSV must not contain any duplicates in column values
