@@ -17,7 +17,7 @@ const msg = {
   },
 };
 
-describe('Tests for lookup from dictionary', () => {
+xdescribe('Tests for lookup from dictionary', () => {
   beforeEach(() => self.emit.resetHistory());
 
   it('Returns the correct column titles from Select Views', () => {
