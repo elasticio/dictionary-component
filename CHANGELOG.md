@@ -1,3 +1,6 @@
+## 1.2.1 (June 16, 2023)
+* Fixed typo in `Duplicates behavior` option
+
 ## 1.2.0 (June 12, 2023)
 * Added `Duplicates behavior` option
 * Fixed error on empty lines

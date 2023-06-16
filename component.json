@@ -1,6 +1,6 @@
 {
   "title": "Lookup Table Component",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Lookup Table Component for CSV lookups",
   "credentials": {
     "fields": {
@@ -42,8 +42,8 @@
           "required": false,
           "viewClass": "SelectView",
           "model": {
-            "emitAllIndividually": "Emit all mach individually",
-            "emitAllArray": "Emit all mach as Array",
+            "emitAllIndividually": "Emit all match individually",
+            "emitAllArray": "Emit all match as Array",
             "emitFirst": "Emit first found",
             "throwError": "Throw an error (Default)"
           },
